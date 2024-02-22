@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Alert } from "react-native";
+import { Alert, TextInput } from "react-native";
 import { APIs } from "../../APIs/API";
 import { setError, setFlightList, toggleStatus } from "../../redux/slices/flightSlice";
 import { AppDispatch, RootState } from "../../redux/store/store";
 import { T, flightObjectType } from "./Types";
-import { TextInput } from "react-native-gesture-handler";
 import { useNetInfo } from "@react-native-community/netinfo";
 import { useAppDispatch, useAppSelector } from "../../redux/hook";
 import { AllScreens } from "../../Navigation/NavConfig";

@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import { View, TouchableOpacity } from 'react-native'
-import { TextInput } from 'react-native-gesture-handler';
+import { View, TouchableOpacity, TextInput } from 'react-native'
 import { styles } from './styles';
 import { RNStyles } from '../../Common/RNStyles';
 
@@ -14,13 +13,13 @@ type Props = {
 }
 
 const CustomTextInput = forwardRef<TextInput, Props>((props, ref) => {
-    const { onChangeText,
+    const {
+        onChangeText,
         leftIcon,
         rightIcon,
         placeholder,
         onPressLeftIcon,
         onPressRightIcon,
-
     } = props;
 
     return (
