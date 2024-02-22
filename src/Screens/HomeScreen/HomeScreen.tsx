@@ -16,7 +16,6 @@ import useHomeScreen from './useHomeScreen';
 const HomeScreen: React.FC<Props> = (props: Props) => {
 
     const {
-        _ref,
         airlineName,
         setAirlineName,
         sortBy,
@@ -41,7 +40,7 @@ const HomeScreen: React.FC<Props> = (props: Props) => {
                         return (
                             <View style={styles.textInputContainer}>
                                 <CustomTextInput
-                                    ref={_ref}
+                                    value={airlineName}
                                     placeholder={messages.searchAirline}
                                     leftIcon={<All_Svgs.Search />}
                                     rightIcon={airlineName.length ? <All_Svgs.Close /> : undefined}

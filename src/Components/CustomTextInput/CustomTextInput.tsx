@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { View, TouchableOpacity, TextInput } from 'react-native'
 import { styles } from './styles';
 import { RNStyles } from '../../Common/RNStyles';
 
 type Props = {
     onChangeText?: ((text: string) => void)
+    value?: string
     leftIcon?: React.ReactNode
     rightIcon?: React.ReactNode
     placeholder?: string
@@ -12,9 +13,10 @@ type Props = {
     onPressLeftIcon?: () => void
 }
 
-const CustomTextInput = forwardRef<TextInput, Props>((props, ref) => {
+const CustomTextInput = (props: Props) => {
     const {
         onChangeText,
+        value,
         leftIcon,
         rightIcon,
         placeholder,
@@ -34,7 +36,7 @@ const CustomTextInput = forwardRef<TextInput, Props>((props, ref) => {
                 </TouchableOpacity>
             }
             <TextInput
-                ref={ref}
+                value={value}
                 style={[
                     styles.TextInput, (leftIcon && rightIcon) ?
                         { ...styles.textInputLeftPad, ...styles.textInputRightPad } :
@@ -55,6 +57,6 @@ const CustomTextInput = forwardRef<TextInput, Props>((props, ref) => {
             }
         </View>
     )
-})
+}
 
 export default CustomTextInput;

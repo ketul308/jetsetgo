@@ -26,7 +26,6 @@ export default function useHomeScreen() {
     const flatlistOneElement = [1];
 
     const navigation = useNavigation<NavigationProp<MainStackScreenTypes>>();
-    const _ref: T = React.createRef<TextInput>();
 
     const flightList = useAppSelector((e: RootState) => e.flight.flightList);
     const status = useAppSelector((e: RootState) => e.flight.status);
@@ -68,7 +67,7 @@ export default function useHomeScreen() {
 
     useEffect(() => {
         if (airlineName.length && sortBy.name.length) {
-            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName?.toLowerCase().includes(airlineName?.toLowerCase()));
+            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName?.toLowerCase()?.includes(airlineName?.toLowerCase()));
             const temp = [...filteredFlights].sort((a, b) => sortBy.type === "INC" ? a.fare - b.fare : sortBy.type === "DCR" ? b.fare - a.fare : 0);
 
             setVisibleFlights(temp);
@@ -101,7 +100,6 @@ export default function useHomeScreen() {
 
     const onPressRightIcon = () => {
         setAirlineName("");
-        _ref.current?.clear();
     }
 
     return {
@@ -109,7 +107,6 @@ export default function useHomeScreen() {
         airlineName, setAirlineName,
         sortBy, setSortBy,
         skeletonArray,
-        _ref,
         flightList,
         flatlistOneElement,
         status,
