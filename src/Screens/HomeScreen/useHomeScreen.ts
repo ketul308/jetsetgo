@@ -68,12 +68,12 @@ export default function useHomeScreen() {
 
     useEffect(() => {
         if (airlineName.length && sortBy.name.length) {
-            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName.toLowerCase().includes(airlineName));
+            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName?.toLowerCase().includes(airlineName?.toLowerCase()));
             const temp = [...filteredFlights].sort((a, b) => sortBy.type === "INC" ? a.fare - b.fare : sortBy.type === "DCR" ? b.fare - a.fare : 0);
 
             setVisibleFlights(temp);
         } else if (airlineName.length) {
-            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName.toLowerCase().includes(airlineName));
+            const filteredFlights = flightList.filter((ele: any) => ele.displayData.airlines?.[0].airlineName?.toLowerCase()?.includes(airlineName?.toLowerCase()));
             setVisibleFlights(filteredFlights);
         } else if (sortBy.name.length) {
             const sortedFlights = [...flightList].sort((a, b) => sortBy.type === "INC" ? b.fare - a.fare : sortBy.type === "DCR" ? a.fare - b.fare : 0);
